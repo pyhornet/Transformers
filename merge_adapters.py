@@ -52,8 +52,8 @@ model = PeftModel.from_pretrained(model, "adapter1", adapter_name="adapter1").to
 # Load another adapter into the model
 model.load_adapter("adapter2", adapter_name="adapter2")
 
-# Combine the two adapters with specified weights and save the combined adapter as "name"
-model.add_weighted_adapter(["adapter1", "adapter2"], [1.0, 1.0], combination_type="my_merged_model", adapter_name="my_merged_model") 
+# Combine the two adapters with specified weights and save the combined adapter as "my_merged_model"
+model.add_weighted_adapter(["adapter1", "adapter2"], [1.0, 1.0], combination_type="cat", adapter_name="my_merged_model") 
 # Refer to https://huggingface.co/docs/peft/package_reference/lora for more info
 
 # Delete the individual adapters from the model
